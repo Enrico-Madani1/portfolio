@@ -16,6 +16,8 @@ export interface ProjectData {
   paperUrl?: string;
   githubUrl?: string;
   youtubeUrl?: string;
+  liveUrl?: string;
+  demoUrl?: string;
 }
 
 export const projects: ProjectData[] = [
@@ -56,7 +58,7 @@ export const projects: ProjectData[] = [
     id: "ai-adversarial-chatbot",
     title:
       "Adversarial Collaboration as Pedagogy: Enhacing Spatial Reasoning with Chatbot Dialogue",
-    tags: ["Human-AI Collaboration", "NLP", "Education"],
+    tags: ["Human-AI Collaboration", "LLM", "Education"],
     institution: "Center for Spatial Data Science, UChicago",
     date: "Summer 2025",
     description:
@@ -77,6 +79,7 @@ export const projects: ProjectData[] = [
     posterUrl: "/images/AI-chatbot.png",
     githubUrl:
       "https://github.com/Enrico-Madani1/adversarial-collaborator-chatbot",
+    demoUrl: "https://adversarial-collaborator-chatbot.vercel.app/",
   },
   {
     id: "missing-middle-housing",

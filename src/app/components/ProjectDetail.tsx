@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { ArrowLeft, Github, ExternalLink, FileText, Youtube } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, FileText, Youtube, Globe} from 'lucide-react';
 import { Button } from './ui/button';
 
 export function ProjectDetail() {
@@ -69,6 +69,17 @@ export function ProjectDetail() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="flex flex-wrap gap-4 mb-12"
         >
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+            >
+              <Globe className="w-4 h-4" />
+              Visit Chatbot
+            </a>
+          )}
           {project.githubUrl && (
             <a
               href={project.githubUrl}

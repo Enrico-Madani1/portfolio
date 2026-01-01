@@ -18,7 +18,7 @@ export function ExperienceSection() {
       description: 'Developed AI adversarial collaborator chatbot for improving research question quality, implementing rubric-based evaluation and guardrail mechanisms.',
     },
     {
-      title: 'Research Fellow',
+      title: 'Research Intern',
       organization: 'Summer Institute in Social Science Research',
       date: 'May 2024 - Sep 2024',
       description: 'Built AI algorithm for historical map digitization and conducted spatial analysis of Illinois street infrastructure using QGIS and GeoDa.',
@@ -47,7 +47,7 @@ export function ExperienceSection() {
     {
       title: "Dean's List",
       organization: 'University of Chicago',
-      date: '2023-24',
+      date: '2023-2024',
       description: 'GPA: 3.9/4.0',
     },
     {

@@ -18,6 +18,7 @@ export interface ProjectData {
   youtubeUrl?: string;
   liveUrl?: string;
   demoUrl?: string;
+  newsUrl?: string; // Added for news articles/press coverage
 }
 
 export const projects: ProjectData[] = [
@@ -33,9 +34,9 @@ export const projects: ProjectData[] = [
     introduction:
       "This research investigates the tradeoffs between privacy, utility, and fairness in differential privacy methods. This explores whether S-DP-SGD, which selectively applies differential privacy noise to gradients associated with sensitive features (e.g., race and sex), preserve model utility and fairness more effectively than classical DP-SGD.",
     highlights: [
-      "Compared Standard DP-SGD vs. Selective DP-SGD on Adult Income Census dataset",
-      "Analyzed fairness impacts for both privacy models across demographic groups (sex and race)",
-      "Won Faculty Favorite Award at Data Ethics Poster Session",
+      "Developed Selective DP-SGD algorithm in PyTorch with per-sample gradient clipping and masked noise injection, protecting only sensitive features (sex and race)",
+      "Benchmarked custom implementation against Opacus PrivacyEngine's Standard DP-SGD",
+      "Evaluated privacy-utility-fairness tradeoffs between Standard and Selective DP-SGD",
     ],
     skills: [
       "PyTorch",
@@ -53,6 +54,7 @@ export const projects: ProjectData[] = [
     paperUrl: "/paper/Paper_DATA259.pdf",
     githubUrl:
       "https://github.com/Enrico-Madani1/S-DP-SGD_Data259",
+      newsUrl: "https://datascience.uchicago.edu/news/data-ethics-students-tackle-real-world-challenges-in-poster-session/",
   },
   {
     id: "ai-adversarial-chatbot",

@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { ArrowLeft, Github, ExternalLink, FileText, Youtube, Globe, Newspaper} from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, FileText, Youtube, Globe, Newspaper, PlayCircle } from 'lucide-react';
 import { Button } from './ui/button';
 
 export function ProjectDetail() {
@@ -122,6 +122,17 @@ export function ProjectDetail() {
             >
               <Youtube className="w-4 h-4" />
               Watch Video
+            </a>
+          )}
+          {project.videoUrl && (
+            <a
+              href={project.videoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
+            >
+              <PlayCircle className="w-4 h-4" />
+              Video Walkthrough
             </a>
           )}
         </motion.div>

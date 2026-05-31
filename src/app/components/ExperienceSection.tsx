@@ -4,6 +4,13 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const experiences = [
   {
     title: 'Research Assistant',
+    organization: 'AI & Me Lab, UChicago',
+    date: 'Mar 2026 - Present',
+    description:
+      "Studying how adding productive friction to ChatGPT interfaces influences how students write, reason, and engage with AI-assisted learning workflows.",
+  },
+  {
+    title: 'Research Assistant',
     organization: 'Urbanism Lab, UChicago',
     date: 'Sep 2024 - Present',
     description:

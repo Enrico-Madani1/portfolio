@@ -16,12 +16,48 @@ export interface ProjectData {
   paperUrl?: string;
   githubUrl?: string;
   youtubeUrl?: string;
+  videoUrl?: string;
   liveUrl?: string;
   demoUrl?: string;
   newsUrl?: string; // Added for news articles/press coverage
 }
 
 export const projects: ProjectData[] = [
+  {
+    id: "zero-foodprint-carbon-farming",
+    title:
+      "Zero Foodprint: Parcel-Level Carbon Farming Candidate Identification",
+    tags: [
+      "Urban Data Science",
+      "Social Impact",
+      "Data Visualization",
+    ],
+    institution: "Data Science Institute Clinic, UChicago x Zero Foodprint",
+    date: "Spring 2026",
+    description:
+      "Built a geospatial scoring and ranking system to identify California farm parcels most suitable for carbon farming interventions.",
+    introduction:
+      "This project supports Zero Foodprint's grantmaking by turning a mostly manual parcel identification process into a repeatable data workflow. We integrated statewide geospatial and tabular datasets, designed a transparent candidate scoring framework, and built an interactive Streamlit application for county-level exploration and ranking comparisons under default and custom weights.",
+    highlights: [
+      "Integrated LandIQ crop data, PI/DI rasters, gSSURGO soils, slope, and biomass into a unified parcel-level California dataset",
+      "Developed a transparent multi-layer suitability scoring system with adjustable user weights for parcel ranking",
+      "Created a Streamlit dashboard for county filtering, parcel inspection, and side-by-side ranking scenario analysis",
+    ],
+    skills: [
+      "Python",
+      "Streamlit",
+      "GeoPandas",
+      "Geospatial Data Integration",
+      "Spatial Analysis",
+      "Data Pipeline Design",
+    ],
+    image:
+      "/images/zero-foodprint-dashboard.png",
+    githubUrl:
+      "https://github.com/dsi-clinic/2026-spring-zero-foodprint",
+    videoUrl:
+      "https://drive.google.com/drive/folders/1GnAlT2fuIfReam91DcYnS_Q6q7hAu1R9",
+  },
   {
     id: "selective-dp-sgd",
     title:

@@ -1,183 +1,83 @@
-import { motion } from 'motion/react';
-import { useState } from 'react';
-import { useInView } from './hooks/useInView';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Mail, Github, Linkedin } from 'lucide-react';
-import { toast } from 'sonner';
+import { Mail, Github, Linkedin, FileText, ExternalLink } from 'lucide-react';
 
 export function ContactSection() {
-  const [ref, isInView] = useInView({ threshold: 0.1 });
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Message sent successfully! (Demo mode)');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white" ref={ref}>
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl sm:text-4xl mb-12 text-gray-900 uppercase tracking-wide">
-            Contact
-          </h2>
+    <section id="contact" className="bg-white px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 flex items-center gap-3">
+          <span className="h-9 w-[3px] bg-[#7f2f2f]" />
+          <h2 className="text-4xl text-[#212227]">Contact</h2>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="space-y-6"
-            >
-              <div className="border-l-2 border-gray-200 pl-6">
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Interested in collaborating on research projects related to human-AI interaction, 
-                  algorithmic fairness, or urban data science.
-                </p>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+          <div>
+            <p className="max-w-3xl text-base text-[#30343b]">
+              I am always open to research collaborations, student projects, and conversations around
+              human-centered AI, fairness, privacy, and urban analytics.
+            </p>
 
-                <div className="space-y-3 mb-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Email</p>
-                    <a href="mailto:enrico@uchicago.edu" className="text-gray-900 hover:text-red-600">
-                      enrico@uchicago.edu
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Location</p>
-                    <p className="text-gray-900">Chicago, Illinois</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href="mailto:enrico@uchicago.edu"
-                    className="text-gray-600 hover:text-red-600 transition-colors"
-                    aria-label="Email"
-                  >
-                    <Mail className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://github.com/Enrico-Madani1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-red-600 transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-gray-600 hover:text-red-600 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </div>
+            <div className="mt-5 space-y-3 border-l-2 border-[#7f2f2f] pl-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-[#6a7078]">Email</p>
+                <a href="mailto:enrico@uchicago.edu" className="text-sm text-[#212227] hover:text-[#7f2f2f]">
+                  enrico@uchicago.edu
+                </a>
               </div>
-            </motion.div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Label htmlFor="name" className="text-xs uppercase tracking-wide text-gray-500">
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 border-gray-300 focus:border-red-600"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="text-xs uppercase tracking-wide text-gray-500">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 border-gray-300 focus:border-red-600"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="subject" className="text-xs uppercase tracking-wide text-gray-500">
-                    Subject
-                  </Label>
-                  <Select
-                    value={formData.subject}
-                    onValueChange={(value) => setFormData({ ...formData, subject: value })}
-                  >
-                    <SelectTrigger className="mt-1 border-gray-300 focus:border-red-600">
-                      <SelectValue placeholder="Select subject" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="collaboration">Research Collaboration</SelectItem>
-                      <SelectItem value="internship">Internship Opportunity</SelectItem>
-                      <SelectItem value="general">General Inquiry</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-xs uppercase tracking-wide text-gray-500">
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="mt-1 border-gray-300 focus:border-red-600"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white uppercase tracking-wide"
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-[#6a7078]">Resume</p>
+                <a
+                  href="/paper/resume(EnricoMadani).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-[#212227] hover:text-[#7f2f2f]"
                 >
-                  Send Message
-                </Button>
-              </form>
-            </motion.div>
+                  View CV <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
           </div>
-        </motion.div>
+
+          <aside className="rounded-sm border border-[#d8d9d5] bg-[#f9f9f7] p-5">
+            <h3 className="text-xl text-[#212227]">Professional Links</h3>
+            <p className="mt-2 text-sm text-[#555f68]">
+              Best way to reach me is email. You can also find project code and updates here.
+            </p>
+
+            <div className="mt-4 space-y-2 text-sm">
+              <a
+                href="mailto:enrico@uchicago.edu"
+                className="inline-flex items-center gap-2 text-[#212227] hover:text-[#7f2f2f]"
+              >
+                <Mail className="h-4 w-4" /> Email
+              </a>
+              <a
+                href="https://github.com/Enrico-Madani1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#212227] hover:text-[#7f2f2f]"
+              >
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/enrico-madani/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#212227] hover:text-[#7f2f2f]"
+              >
+                <Linkedin className="h-4 w-4" /> LinkedIn
+              </a>
+              <a
+                href="/paper/resume(EnricoMadani).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#212227] hover:text-[#7f2f2f]"
+              >
+                <FileText className="h-4 w-4" /> Resume
+              </a>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );

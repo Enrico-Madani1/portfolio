@@ -31,7 +31,7 @@ export function AboutSection() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Bio */}
-            <div className="border-l-2 border-red-600 pl-6">
+            <div className="border-l-2 border-[#7f2f2f] pl-6">
               <p className="text-gray-700 leading-relaxed mb-4">
                 Hi, I am Enrico, an undergraduate student at
                 UChicago majoring in Data Science and Economics.

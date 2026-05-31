@@ -13,7 +13,7 @@ export function ProjectDetail() {
       <div className="min-h-screen flex items-center justify-center px-4 pt-20 bg-white">
         <div className="text-center">
           <h1 className="text-2xl text-gray-900 mb-4 uppercase tracking-wide">Project Not Found</h1>
-          <Link to="/" className="text-red-600 hover:text-red-700 uppercase tracking-wide border-b border-red-600">
+          <Link to="/" className="text-[#7f2f2f] hover:text-[#692525] uppercase tracking-wide border-b border-[#7f2f2f]">
             Return Home
           </Link>
         </div>
@@ -26,7 +26,7 @@ export function ProjectDetail() {
       {/* Header */}
       <div className="bg-gray-50 border-b border-gray-200 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 uppercase tracking-wide mb-6">
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#7f2f2f] uppercase tracking-wide mb-6">
             <ArrowLeft className="w-4 h-4" />
             Back to Projects
           </Link>
@@ -37,7 +37,7 @@ export function ProjectDetail() {
             transition={{ duration: 0.6 }}
           >
             {project.award && (
-              <span className="inline-block text-xs bg-red-600 text-white px-2 py-1 uppercase tracking-wide mb-4">
+              <span className="inline-block text-xs bg-[#7f2f2f] text-white px-2 py-1 uppercase tracking-wide mb-4">
                 {project.award}
               </span>
             )}
@@ -74,7 +74,7 @@ export function ProjectDetail() {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
             >
               <Globe className="w-4 h-4" />
               Visit Chatbot
@@ -85,7 +85,7 @@ export function ProjectDetail() {
               href={project.newsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
             >
               <Newspaper className="w-4 h-4" />
               Featured in News
@@ -96,7 +96,7 @@ export function ProjectDetail() {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
             >
               <Github className="w-4 h-4" />
               GitHub Repository
@@ -107,7 +107,7 @@ export function ProjectDetail() {
               href={project.paperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
             >
               <FileText className="w-4 h-4" />
               View Paper
@@ -118,7 +118,7 @@ export function ProjectDetail() {
               href={project.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-2 transition-colors uppercase tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-[#7f2f2f] border border-gray-300 hover:border-[#7f2f2f] px-4 py-2 transition-colors uppercase tracking-wide"
             >
               <Youtube className="w-4 h-4" />
               Watch Video
@@ -137,7 +137,7 @@ export function ProjectDetail() {
             <h2 className="text-2xl text-gray-900 uppercase tracking-wide mb-6">
               Introduction
             </h2>
-            <div className="border-l-2 border-red-600 pl-6">
+            <div className="border-l-2 border-[#7f2f2f] pl-6">
               <p className="text-gray-700 leading-relaxed">
                 {project.introduction}
               </p>
@@ -171,8 +171,8 @@ export function ProjectDetail() {
           </h2>
           <ul className="space-y-3">
             {project.highlights.map((highlight, i) => (
-              <li key={i} className="flex items-start border-l-2 border-gray-200 hover:border-red-600 pl-6 py-2 transition-colors">
-                <span className="text-red-600 mr-3">→</span>
+              <li key={i} className="flex items-start border-l-2 border-gray-200 hover:border-[#7f2f2f] pl-6 py-2 transition-colors">
+                <span className="text-[#7f2f2f] mr-3">→</span>
                 <span className="text-gray-700">{highlight}</span>
               </li>
             ))}
@@ -203,7 +203,7 @@ export function ProjectDetail() {
                   href={project.posterUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-red-600 hover:text-red-700 uppercase tracking-wide border-b border-red-600"
+                  className="inline-flex items-center gap-2 text-sm text-[#7f2f2f] hover:text-[#692525] uppercase tracking-wide border-b border-[#7f2f2f]"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Download Full Resolution Image
@@ -269,7 +269,7 @@ export function ProjectDetail() {
           className="flex justify-center pt-8 border-t border-gray-200"
         >
           <Link to="/">
-            <Button className="bg-red-600 hover:bg-red-700 text-white uppercase tracking-wide">
+            <Button className="bg-[#7f2f2f] hover:bg-[#692525] text-white uppercase tracking-wide">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to All Projects
             </Button>

@@ -1,141 +1,118 @@
-import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useInView } from './hooks/useInView';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ChevronDown, ChevronUp } from 'lucide-react';
 import { projects } from '../data/projects';
 
+const filters = [
+  'All Projects',
+  'Human-AI Collaboration',
+  'Fairness & Privacy',
+  'Urban Data Science',
+  'Computer Vision',
+];
+
 export function ResearchSection() {
-  const [ref, isInView] = useInView({ threshold: 0.1 });
   const [activeFilter, setActiveFilter] = useState('All Projects');
+  const [showAll, setShowAll] = useState(false);
 
-  const filters = [
-    'All Projects',
-    'Human-AI Collaboration',
-    'Fairness & Privacy',
-    'Urban Data Science',
-    'Computer Vision',
-  ];
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) => {
+      if (activeFilter === 'All Projects') return true;
+      return project.tags.includes(activeFilter);
+    });
+  }, [activeFilter]);
 
-  const filteredProjects = projects.filter(project => {
-    if (activeFilter === 'All Projects') return true;
-    return project.tags.includes(activeFilter);
-  });
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
-    <section id="research" className="py-20 px-4 sm:px-6 lg:px-8 bg-white" ref={ref}>
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl sm:text-4xl mb-12 text-gray-900 uppercase tracking-wide">
-            Research
-          </h2>
+    <section id="research" className="bg-white px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 flex items-center gap-3">
+          <span className="h-9 w-[3px] bg-[#7f2f2f]" />
+          <h2 className="text-4xl text-[#212227]">Selected Research</h2>
+        </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12 border-b border-gray-200 pb-4">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`text-xs uppercase tracking-wide px-3 py-1 transition-colors ${
-                  activeFilter === filter
-                    ? 'bg-red-600 text-white'
-                    : 'bg-white border border-gray-300 text-gray-700 hover:border-red-600'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
+        <div className="mb-8 flex flex-wrap gap-2 border-b border-[#d8d9d5] pb-4">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => {
+                setActiveFilter(filter);
+                setShowAll(false);
+              }}
+              className={`rounded-sm border px-3 py-1 text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                activeFilter === filter
+                  ? 'border-[#7f2f2f] bg-[#7f2f2f] text-white'
+                  : 'border-[#d5d8dc] bg-white text-[#555f68] hover:border-[#7f2f2f] hover:text-[#7f2f2f]'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
 
-          {/* Project List */}
-          <div className="space-y-12">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="border-l-2 border-gray-200 pl-6 hover:border-red-600 transition-colors group"
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <div>
+        <div className="space-y-1">
+          {visibleProjects.map((project) => (
+            <article key={project.id} className="border-b border-[#e3e5e2] py-5">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
                     <Link to={`/project/${project.id}`}>
-                      <h3 className="text-xl text-gray-900 mb-1 group-hover:text-red-600 transition-colors cursor-pointer">
+                      <h3 className="text-2xl text-[#212227] transition-colors hover:text-[#7f2f2f]">
                         {project.title}
-                        {project.award && (
-                          <span className="ml-3 text-xs bg-red-600 text-white px-2 py-1 uppercase tracking-wide">
-                            {project.award}
-                          </span>
-                        )}
                       </h3>
                     </Link>
-                    <p className="text-sm text-gray-600">
-                      {project.institution} • {project.date}
-                    </p>
-                  </div>
-                  <div className="flex gap-2">
-                    <Link 
-                      to={`/project/${project.id}`}
-                      className="text-gray-400 hover:text-red-600 transition-colors"
-                      title="View Details"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </Link>
-                    {project.githubUrl && (
-                      <a 
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-red-600 transition-colors"
-                        title="View on GitHub"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
+                    {project.award && (
+                      <span className="rounded-sm border border-[#d8c1c1] bg-[#f7eeee] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#7f2f2f]">
+                        {project.award}
+                      </span>
                     )}
                   </div>
+                  <p className="mt-1 text-sm text-[#666d76]">
+                    {project.institution} • {project.date}
+                  </p>
                 </div>
 
-                <p className="text-gray-700 mb-3 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Highlights */}
-                <ul className="text-sm text-gray-600 space-y-1 mb-3">
-                  {project.highlights.map((highlight, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-red-600 mr-2">→</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Tags & Skills */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-2 py-1 bg-gray-100 text-gray-600"
+                <div className="flex items-center gap-2 text-[#666d76]">
+                  <Link to={`/project/${project.id}`} className="hover:text-[#7f2f2f]" title="View details">
+                    <ExternalLink className="h-4 w-4" />
+                  </Link>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#7f2f2f]"
+                      title="View GitHub"
                     >
-                      {skill}
-                    </span>
-                  ))}
+                      <Github className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
+              </div>
 
-                {/* View Details Link */}
-                <Link 
-                  to={`/project/${project.id}`}
-                  className="inline-block text-sm text-red-600 hover:text-red-700 uppercase tracking-wide border-b border-red-600"
-                >
-                  View Full Details →
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              <p className="mt-2 text-sm leading-6 text-[#30343b]">{project.description}</p>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="rounded-sm bg-[#f0f2ef] px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-[#5f6871]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {filteredProjects.length > 4 && (
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className="mt-5 inline-flex items-center gap-2 rounded-sm border border-[#d5d8dc] bg-white px-3 py-1.5 text-xs uppercase tracking-[0.12em] text-[#7f2f2f] transition-colors hover:border-[#7f2f2f]"
+          >
+            {showAll ? 'Show less' : `Show more (${filteredProjects.length - 4})`}
+            {showAll ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+          </button>
+        )}
       </div>
     </section>
   );

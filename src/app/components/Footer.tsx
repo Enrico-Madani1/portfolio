@@ -2,50 +2,35 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Name & Copyright */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-gray-400 uppercase tracking-wide">
-              © 2025 Enrico Madani
-            </p>
-          </div>
+    <footer className="border-t border-[#d8d9d5] bg-[#f6f6f4] px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-3 text-xs uppercase tracking-[0.12em] text-[#6a7078] md:flex-row md:items-center">
+        <p>© 2026 Enrico Madani</p>
 
-          {/* Social Links */}
-          <div className="flex gap-4">
-            <a
-              href="mailto:enrico@uchicago.edu"
-              className="text-gray-400 hover:text-red-600 transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com/Enrico-Madani1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-red-600 transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-red-600 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
-
-          {/* Last Updated */}
-          <div className="text-center md:text-right">
-            <p className="text-sm text-gray-400 uppercase tracking-wide">
-              Last Updated: Dec 2025
-            </p>
-          </div>
+        <div className="flex items-center gap-3 text-[#6a7078]">
+          <a href="mailto:enrico@uchicago.edu" className="hover:text-[#7f2f2f]" aria-label="Email">
+            <Mail className="h-4 w-4" />
+          </a>
+          <a
+            href="https://github.com/Enrico-Madani1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#7f2f2f]"
+            aria-label="GitHub"
+          >
+            <Github className="h-4 w-4" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/enrico-madani/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#7f2f2f]"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
         </div>
+
+        <p>Updated May 2026</p>
       </div>
     </footer>
   );

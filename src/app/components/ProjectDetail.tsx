@@ -166,7 +166,7 @@ export function ProjectDetail() {
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-[400px] object-cover border-2 border-gray-200"
+            className="w-full h-auto max-h-[620px] object-contain border-2 border-gray-200 bg-white"
           />
         </motion.section>
 

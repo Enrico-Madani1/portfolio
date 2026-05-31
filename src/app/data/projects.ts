@@ -126,6 +126,8 @@ export const projects: ProjectData[] = [
       "/images/inpres-completion-trends.png",
     paperUrl:
       "/paper/ECON21110_Final_Paper.pdf",
+    githubUrl:
+      "https://github.com/Enrico-Madani1/INPRES_Intergenerational_Spillover_Project/",
   },
   {
     id: "selective-dp-sgd",

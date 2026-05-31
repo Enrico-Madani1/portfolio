@@ -77,8 +77,8 @@ export function HeroSection() {
 
             <p className="max-w-3xl text-base text-[#30343b]">
               I study how machine learning systems can better support human decision-making in education,
-              urban policy, and socially sensitive settings. My work focuses on Human-AI Interaction,
-              Urban/Spatial Data Science, and questions in education and public policy.
+              urban policy, and socially sensitive settings. My work focuses on human-AI interaction,
+              urban/spatial data science, and questions in education and public policy.
             </p>
 
             <div className="grid gap-6 md:grid-cols-3">

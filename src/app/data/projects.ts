@@ -56,7 +56,7 @@ export const projects: ProjectData[] = [
     githubUrl:
       "https://github.com/dsi-clinic/2026-spring-zero-foodprint",
     videoUrl:
-      "https://drive.google.com/drive/folders/1GnAlT2fuIfReam91DcYnS_Q6q7hAu1R9",
+      "https://drive.google.com/file/d/16YL0aP3yKza4S6Qngx0W43LotW2H2CPk/view?usp=sharing",
   },
   {
     id: "selective-dp-sgd",

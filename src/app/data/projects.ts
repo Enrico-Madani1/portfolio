@@ -24,6 +24,45 @@ export interface ProjectData {
 
 export const projects: ProjectData[] = [
   {
+    id: "ecosoc-un-wb-alignment",
+    title:
+      "ECOSOC Transcripts x UN and World Bank Spending Alignment",
+    tags: [
+      "Machine Learning",
+      "Data Visualization",
+      "Statistical Modeling",
+    ],
+    institution: "BUSN 20800, University of Chicago",
+    date: "Spring 2026",
+    description:
+      "Analyzed whether ECOSOC policy discourse aligns with actual UN agency revenue and World Bank sector commitments from 2000 onward.",
+    introduction:
+      "This project links what ECOSOC discusses in summary-record transcripts with where development funding flows in practice. Our team built a reproducible pipeline across ECOSOC transcripts, UN agency revenue data, World Bank project commitments, and macro controls. We combined descriptive analysis, unsupervised topic modeling, and supervised prediction to evaluate alignment and divergence between agenda-setting language and observed spending patterns.",
+    highlights: [
+      "Built a multi-source data pipeline integrating ECOSOC transcript text, UN revenue panels, and World Bank project commitments into year-level analysis tables",
+      "Developed topic-model and alignment analyses to compare discourse distributions against UN agency and WB sector funding shares over time",
+      "Led supervised modeling and ablation analysis across feature tiers (lexicons, TF-IDF, embeddings) to test predictive power for UN and WB funding outcomes",
+    ],
+    skills: [
+      "Python",
+      "NLP",
+      "Scikit-learn",
+      "Topic Modeling (LDA)",
+      "Statistical Modeling",
+      "Data Pipeline Design",
+    ],
+    image:
+      "/images/sample.jpg",
+    posterImage:
+      "/images/ecosoc-ablation-bars.png",
+    posterUrl:
+      "/images/ecosoc-ablation-bars.png",
+    paperUrl:
+      "/paper/BUSN208_Final_Paper_Draft.pdf",
+    githubUrl:
+      "https://github.com/Tahvia127/BUSN-20800-Final-Project-",
+  },
+  {
     id: "zero-foodprint-carbon-farming",
     title:
       "Zero Foodprint: Parcel-Level Carbon Farming Candidate Identification",

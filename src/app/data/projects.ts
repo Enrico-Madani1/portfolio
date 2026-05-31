@@ -53,7 +53,7 @@ export const projects: ProjectData[] = [
       "Data Pipeline Design",
     ],
     image:
-      "/images/ecosoc-sdg-cover.png",
+      "/images/ecosoc-sdg-cover.jpg",
     paperUrl:
       "/paper/BUSN208_Final_Paper_Draft.pdf",
     githubUrl:
@@ -93,6 +93,39 @@ export const projects: ProjectData[] = [
       "https://github.com/dsi-clinic/2026-spring-zero-foodprint",
     videoUrl:
       "https://drive.google.com/file/d/16YL0aP3yKza4S6Qngx0W43LotW2H2CPk/view?usp=sharing",
+  },
+  {
+    id: "inpres-intergenerational-spillovers",
+    title:
+      "Intergenerational Human Capital Spillovers in Indonesia's INPRES Program",
+    tags: [
+      "Education",
+      "Statistical Modeling",
+      "Causal Inference",
+    ],
+    institution: "ECON 21110 Applied Microeconometrics, University of Chicago",
+    date: "Winter 2026",
+    description:
+      "Replicated and extended Mazumder, Rosales-Rueda, and Triyana (2019) to evaluate intergenerational effects of Indonesia's INPRES school construction program.",
+    introduction:
+      "This project studies whether first-generation schooling gains from Indonesia's INPRES school construction program transmitted to the next generation. Using a cohort-based difference-in-differences design with continuous treatment intensity, I reproduce the paper's qualitative findings and extend the analysis with event-study validation, placebo checks, and education-ladder outcomes.",
+    highlights: [
+      "Replicated both core result tables: positive first-generation primary completion effects and stronger maternal intergenerational exam-score effects",
+      "Diagnosed estimate-level differences versus the published paper and showed they are explained by a treatment-intensity scaling difference in the INPRES variable",
+      "Extended the design with pre-trend diagnostics (Wald test, power analysis, placebo test) and education-ladder heterogeneity analyses",
+    ],
+    skills: [
+      "R",
+      "Difference-in-Differences",
+      "Event Study Design",
+      "Fixed Effects Modeling",
+      "Causal Inference",
+      "Reproducible Research",
+    ],
+    image:
+      "/images/inpres-completion-trends.png",
+    paperUrl:
+      "/paper/ECON21110_Final_Paper.pdf",
   },
   {
     id: "selective-dp-sgd",
